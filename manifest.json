@@ -1,9 +1,8 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
+  "name": "MaxLengthWarner",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Warns the user when entering data past the maximum length of a form input. Icons by Vaadin https://www.flaticon.com/authors/vaadin",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
