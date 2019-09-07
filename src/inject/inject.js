@@ -1,11 +1,38 @@
+function isCharacterKeyPress(evt) {
+    const keycode = evt.keyCode;
+
+    const valid = 
+        (keycode > 47 && keycode < 58)   || // number keys
+        keycode == 32                    || // spacebar & return key(s) (if you want to allow carriage returns)
+        (keycode > 64 && keycode < 91)   || // letter keys
+        (keycode > 95 && keycode < 112)  || // numpad keys
+        (keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+        (keycode > 218 && keycode < 223);   // [\]' (in order)
+
+    return valid;
+}
+
 function setUpListener() {
 
     document.querySelectorAll("input[maxlength]").forEach(input => {
         input.addEventListener("keydown", function(e) {
-            const maxLen = e.target.getAttribute("maxlength");
+            if (!isCharacterKeyPress(e)) {
+                return;
+            }
 
-            if (e.target.value.length == maxLen) {
-                 
+            const elem   = e.target;
+            const maxLen = elem.getAttribute("maxlength");
+
+            if (elem.value.length == maxLen) {
+                elem.classList.remove("maxlenwarner-shake");
+
+                void elem.offsetWidth;
+
+                elem.classList.add("maxlenwarner-shake");
+
+                elem.addEventListener("animationend", function() {
+                    elem.classList.remove("maxlenwarner-shake");
+                });
             }
         });
     });
@@ -29,3 +56,4 @@ chrome.extension.sendMessage({}, function(response) {
 	}
 	}, 10);
 });
+
