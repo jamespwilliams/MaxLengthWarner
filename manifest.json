@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "<all_urls>"
       ],
       "css": [
         "src/inject/inject.css"
@@ -24,7 +24,7 @@
     },
     {
       "matches": [
-        "https://www.google.com/*"
+        "<all_urls>"
       ],
       "js": [
         "src/inject/inject.js"
