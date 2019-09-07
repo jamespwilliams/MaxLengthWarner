@@ -27,7 +27,8 @@
         "<all_urls>"
       ],
       "js": [
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "src/inject/arrive.min.js"
       ]
     }
   ]
