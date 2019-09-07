@@ -37,8 +37,8 @@ function setUpListener() {
         input.addEventListener("keydown", inputKeyPressed);
     });
 
-    document.arrive(".test-elem", function() {
-        // 'this' refers to the newly created element
+    document.arrive("input", function() {
+        this.addEventListener("keydown", inputKeyPressed);
     });
 }
 
