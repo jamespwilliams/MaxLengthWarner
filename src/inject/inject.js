@@ -1,3 +1,23 @@
+function inputKeyPressed(evt) {
+    const elem = evt.target;
+
+    if (elem.maxLength < 0 || !isCharacterKeyPress(evt)) {
+        return;
+    }
+
+    if (elem.value.length == elem.maxLength) {
+        elem.classList.remove("maxlenwarner-shake");
+
+        void elem.offsetWidth;
+
+        elem.classList.add("maxlenwarner-shake");
+
+        elem.addEventListener("animationend", function() {
+            elem.classList.remove("maxlenwarner-shake");
+        });
+    }
+}
+
 function isCharacterKeyPress(evt) {
     const keycode = evt.keyCode;
 
@@ -13,28 +33,8 @@ function isCharacterKeyPress(evt) {
 }
 
 function setUpListener() {
-
     document.querySelectorAll("input").forEach(input => {
-        input.addEventListener("keydown", function(e) {
-            if (input.maxLength < 0 || !isCharacterKeyPress(e)) {
-                return;
-            }
-
-            const elem   = e.target;
-            const maxLen = elem.getAttribute("maxlength");
-
-            if (elem.value.length == maxLen) {
-                elem.classList.remove("maxlenwarner-shake");
-
-                void elem.offsetWidth;
-
-                elem.classList.add("maxlenwarner-shake");
-
-                elem.addEventListener("animationend", function() {
-                    elem.classList.remove("maxlenwarner-shake");
-                });
-            }
-        });
+        input.addEventListener("keydown", inputKeyPressed);
     });
 
     document.arrive(".test-elem", function() {
@@ -46,12 +46,6 @@ chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
-
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/inject.js");
-		// ----------------------------------------------------------
-
         setUpListener();
 	}
 	}, 10);
