@@ -14,9 +14,9 @@ function isCharacterKeyPress(evt) {
 
 function setUpListener() {
 
-    document.querySelectorAll("input[maxlength]").forEach(input => {
+    document.querySelectorAll("input").forEach(input => {
         input.addEventListener("keydown", function(e) {
-            if (!isCharacterKeyPress(e)) {
+            if (input.maxLength < 0 || !isCharacterKeyPress(e)) {
                 return;
             }
 
