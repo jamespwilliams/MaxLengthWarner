@@ -10,12 +10,12 @@
   },
   "default_locale": "en",
   "permissions": [
-    "<all_urls>"
+    "http://*/*", "https://*/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+        "http://*/*", "https://*/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -23,7 +23,7 @@
     },
     {
       "matches": [
-        "<all_urls>"
+        "http://*/*", "https://*/*"
       ],
       "js": [
         "src/inject/inject.js",
