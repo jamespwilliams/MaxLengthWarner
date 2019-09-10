@@ -10,4 +10,4 @@ When using long passwords on sites which set the maximum length of `input` tags,
 
 The extension will be injected into any site, and should work on any input field where the `maxLength` JS DOM property is set. This also includes `input` tags where `maxlength` is set.
 
-https://chrome.google.com/webstore/detail/maxlengthwarner/mpponigpclkmpdamdedffdlhcgdjcijn
+https://chrome.google.com/webstore/detail/maxlengthwarner/mpponigpclkmpdamdedffdlhcgdjcijn (the version here is [v1.0.0]( https://github.com/jamespwilliams/MaxLengthWarner/releases/tag/v1.0.0))
